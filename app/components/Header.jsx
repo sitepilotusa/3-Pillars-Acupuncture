@@ -37,6 +37,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroupOpen, setMobileGroupOpen] = useState(null);
   const pathname = usePathname();
+  const normalizedPath =
+    pathname === "/" ? "/" : (pathname || "/").replace(/\/+$/, "");
+
+  const isActive = (href) => {
+    const normalizedHref = href === "/" ? "/" : href.replace(/\/+$/, "");
+    return normalizedHref === normalizedPath;
+  };
+
+  const isGroupActive = (submenu = []) => submenu.some((item) => isActive(item.href));
 
   useEffect(() => {
     setMobileOpen(false);
@@ -73,10 +82,11 @@ export default function Header() {
         <nav className="nav-links" aria-label="Primary">
           {navItems.map((item) => {
             if (item.submenu?.length) {
+              const groupActive = isGroupActive(item.submenu);
               return (
                 <div className="nav-group" key={item.label}>
                   <button
-                    className="nav-link nav-trigger"
+                    className={`nav-link nav-trigger${groupActive ? " is-active" : ""}`}
                     type="button"
                     aria-haspopup="true"
                   >
@@ -84,7 +94,11 @@ export default function Header() {
                   </button>
                   <div className="dropdown">
                     {item.submenu.map((subItem) => (
-                      <Link href={subItem.href} key={subItem.label}>
+                      <Link
+                        href={subItem.href}
+                        key={subItem.label}
+                        aria-current={isActive(subItem.href) ? "page" : undefined}
+                      >
                         {subItem.label}
                       </Link>
                     ))}
@@ -94,7 +108,12 @@ export default function Header() {
             }
 
             return (
-              <Link className="nav-link" href={item.href} key={item.label}>
+              <Link
+                className={`nav-link${isActive(item.href) ? " is-active" : ""}`}
+                href={item.href}
+                key={item.label}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
                 {item.label}
               </Link>
             );
@@ -150,8 +169,11 @@ export default function Header() {
                       <Link
                         href={subItem.href}
                         key={subItem.label}
-                        className="mobile-submenu-link"
+                        className={`mobile-submenu-link${
+                          isActive(subItem.href) ? " is-active" : ""
+                        }`}
                         onClick={closeMobileMenu}
+                        aria-current={isActive(subItem.href) ? "page" : undefined}
                       >
                         {subItem.label}
                       </Link>
@@ -163,10 +185,11 @@ export default function Header() {
 
             return (
               <Link
-                className="mobile-nav-link"
+                className={`mobile-nav-link${isActive(item.href) ? " is-active" : ""}`}
                 href={item.href}
                 key={item.label}
                 onClick={closeMobileMenu}
+                aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
               </Link>

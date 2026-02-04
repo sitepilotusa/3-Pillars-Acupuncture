@@ -89,6 +89,80 @@ export default function RootLayout({ children }) {
                 </span>
               </address>
               <p className="footer-subtext">Appointments by consultation.</p>
+              <div className="footer-contact-links">
+                <a className="footer-contact-link" href="mailto:alana@3pillarsholistichealth.com">
+                  <span className="footer-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M4 6h16v12H4z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="m4 7 8 6 8-6"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  alana@3pillarsholistichealth.com
+                </a>
+                <a className="footer-contact-link" href="tel:+17202327036">
+                  <span className="footer-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M7 4h4l2 4-3 2a12 12 0 0 0 5 5l2-3 4 2v4c0 1.1-.9 2-2 2-8.3 0-15-6.7-15-15 0-1.1.9-2 2-2Z"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  720-232-7036
+                </a>
+                <div className="footer-socials">
+                  <a
+                    className="footer-social-link"
+                    href="https://www.facebook.com/people/3-Pillars-Acupuncture-Holistic-Health/61558587860628/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="3 Pillars on Facebook"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M13 9.5V8c0-.6.4-1 1-1h1.5V5H14c-2 0-3.5 1.5-3.5 3.5v1H9v2.5h1.5V19H13v-7H15l.5-2.5H13Z" />
+                    </svg>
+                  </a>
+                  <a
+                    className="footer-social-link"
+                    href="https://www.instagram.com/3pillarsholistichealth/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="3 Pillars on Instagram"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect
+                        x="5"
+                        y="5"
+                        width="14"
+                        height="14"
+                        rx="4"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                      />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="3.5"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                      />
+                      <circle cx="16.5" cy="7.5" r="1" fill="currentColor" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
               <a
                 className="footer-cta"
                 href="https://acusimple.com/access/10025/#/appointments/"
