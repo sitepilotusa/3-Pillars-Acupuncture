@@ -28,7 +28,7 @@ export default function HomePage() {
             <a
               className="hero-cta"
               href="https://acusimple.com/access/10025/#/appointments/"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               SCHEDULE A CONSULTATION
@@ -169,14 +169,15 @@ export default function HomePage() {
               <h3>Acupuncture</h3>
               <p>
                 Acupuncture, using thin, sterile needles at key points, bolsters
-                the body's innate healing mechanisms. By working with the body's
-                Qi (chee) "vital force" or the energy that animates all life,
+                the body&apos;s innate healing mechanisms. By working with the
+                body&apos;s Qi (chee) &quot;vital force&quot; or the energy that
+                animates all life,
                 Acupuncture can calm the nervous system, promote circulation, and
                 stimulate the release of chemical mediators to promote healing. The
                 National Institutes of Health recognizes Acupuncture as a
                 beneficial modality for treating pain, fibromyalgia, headaches,
-                and asthma. 3 Pillars specializes in "Balance Method Acupuncture,"
-                from the teachings of Dr. Richard Teh-Fu Tan.
+                and asthma. 3 Pillars specializes in &quot;Balance Method
+                Acupuncture,&quot; from the teachings of Dr. Richard Teh-Fu Tan.
               </p>
               <a className="service-link" href="/contact">
                 LEARN MORE

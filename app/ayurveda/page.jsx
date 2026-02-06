@@ -64,7 +64,7 @@ export default function AyurvedaPage() {
             <a
               className="hero-cta"
               href="https://acusimple.com/access/10025/#/appointments/"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               SCHEDULE A CONSULTATION
@@ -187,7 +187,7 @@ export default function AyurvedaPage() {
                 className="service-link"
                 href="https://acusimple.com/access/10025/#/appointments/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 SCHEDULE NOW
                 <span className="cta-icon" aria-hidden="true">
@@ -238,7 +238,7 @@ export default function AyurvedaPage() {
                 className="service-link"
                 href="https://acusimple.com/access/10025/#/appointments/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 SCHEDULE NOW
                 <span className="cta-icon" aria-hidden="true">
@@ -289,7 +289,7 @@ export default function AyurvedaPage() {
                 className="service-link"
                 href="https://acusimple.com/access/10025/#/appointments/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 SCHEDULE NOW
                 <span className="cta-icon" aria-hidden="true">
@@ -350,7 +350,7 @@ export default function AyurvedaPage() {
               className="service-link"
               href="https://acusimple.com/access/10025/#/appointments/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               SCHEDULE NOW
               <span className="cta-icon" aria-hidden="true">
@@ -387,7 +387,7 @@ export default function AyurvedaPage() {
               className="service-link"
               href="https://acusimple.com/access/10025/#/appointments/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               SCHEDULE NOW
               <span className="cta-icon" aria-hidden="true">

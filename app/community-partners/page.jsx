@@ -620,11 +620,11 @@ export default function CommunityPartnersPage() {
           />
           <div className="about-hero-overlay" aria-hidden="true" />
         </div>
-        <div className="about-hero-content is-middle">
+        <div className="about-hero-content is-middle alana-hero-content">
           <div className="hero-inner">
             <div className="hero-content">
               <p className="hero-eyebrow">Community</p>
-              <h1 className="hero-title">3 Pillars Community Referral Partners</h1>
+              <h1 className="hero-title">Referral Partners</h1>
               <p className="hero-body">
                 Below is a curated list of trusted community referral partners,
                 organized alphabetically by service type.
@@ -635,7 +635,7 @@ export default function CommunityPartnersPage() {
       </section>
       <section className="page-hero">
         <p>Community</p>
-        <h2>3 Pillars Community Referral Partners</h2>
+        <h2>Referral Partners</h2>
         <p>
           Below is a curated list of trusted community referral partners,
           organized alphabetically by service type.

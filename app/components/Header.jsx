@@ -48,6 +48,8 @@ export default function Header() {
   const isGroupActive = (submenu = []) => submenu.some((item) => isActive(item.href));
 
   useEffect(() => {
+    // Route changes should always collapse the mobile navigation state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setMobileGroupOpen(null);
   }, [pathname]);
@@ -125,7 +127,7 @@ export default function Header() {
             className="nav-cta"
             href={scheduleUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Schedule Now
           </a>
@@ -199,7 +201,7 @@ export default function Header() {
             className="nav-cta mobile-nav-cta"
             href={scheduleUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             onClick={closeMobileMenu}
           >
             Schedule Now

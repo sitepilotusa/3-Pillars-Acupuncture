@@ -16,6 +16,17 @@ const resolveFormsEndpoint = (formId) => {
     : `/api/forms/${formId}/submissions`;
 };
 
+const formatPhoneInput = (value) => {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+
+  if (!digits) return "";
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  }
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+};
+
 export default function ContactPageContent() {
   const [formStatus, setFormStatus] = useState("idle");
   const [formError, setFormError] = useState(null);
@@ -113,7 +124,7 @@ export default function ContactPageContent() {
           />
           <div className="about-hero-overlay" aria-hidden="true" />
         </div>
-        <div className="about-hero-content is-middle">
+        <div className="about-hero-content is-middle alana-hero-content">
           <div className="hero-inner">
             <div className="hero-content">
               <p className="hero-eyebrow">Contact</p>
@@ -149,7 +160,7 @@ export default function ContactPageContent() {
             className="intro-cta"
             href="https://www.google.com/maps/dir//6500+W+44th+Ave,+Wheat+Ridge,+CO+80033/@39.776381,-105.1511324,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e5d6acab334cfe1:0x8e15d007f59723ca!2m2!1d-105.0687315!2d39.7764101?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             GET DIRECTIONS
             <span className="cta-icon" aria-hidden="true">
@@ -197,6 +208,7 @@ export default function ContactPageContent() {
             <form
               className={`contact-form ${showSuccessOverlay ? "is-blurred" : ""}`}
               onSubmit={handleSubmit}
+              autoComplete="on"
             >
               {turnstileSiteKey && (
                 <Script
@@ -206,20 +218,65 @@ export default function ContactPageContent() {
               )}
               <h2>Schedule a Free Phone Consult</h2>
               <label>
-                Full Name
-                <input type="text" name="name" autoComplete="name" required disabled={isFormLocked} />
+                <span className="contact-label-text">
+                  Full Name <span className="contact-required" aria-hidden="true">*</span>
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  autoCapitalize="words"
+                  spellCheck="false"
+                  placeholder="Jane Doe"
+                  required
+                  disabled={isFormLocked}
+                />
               </label>
               <label>
-                Email
-                <input type="email" name="email" autoComplete="email" required disabled={isFormLocked} />
+                <span className="contact-label-text">
+                  Email <span className="contact-required" aria-hidden="true">*</span>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  inputMode="email"
+                  placeholder="jane@example.com"
+                  required
+                  disabled={isFormLocked}
+                />
               </label>
               <label>
-                Phone
-                <input type="tel" name="phone" autoComplete="tel" disabled={isFormLocked} />
+                <span className="contact-label-text">Phone</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  autoComplete="tel-national"
+                  inputMode="tel"
+                  placeholder="(720) 232-7036"
+                  onInput={(event) => {
+                    event.currentTarget.value = formatPhoneInput(event.currentTarget.value);
+                  }}
+                  disabled={isFormLocked}
+                />
+                <span className="contact-field-hint">Optional, but helpful for faster follow-up.</span>
               </label>
               <label>
-                How can I help?
-                <textarea name="message" rows="4" required disabled={isFormLocked} />
+                <span className="contact-label-text">
+                  How can I help? <span className="contact-required" aria-hidden="true">*</span>
+                </span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  autoComplete="off"
+                  placeholder="Share what you would like support with, your goals, and any timing preferences."
+                  maxLength={1200}
+                  required
+                  disabled={isFormLocked}
+                />
+                <span className="contact-field-hint">Include symptoms, goals, and preferred contact method.</span>
               </label>
               <div className="contact-form-actions">
                 {turnstileSiteKey && (

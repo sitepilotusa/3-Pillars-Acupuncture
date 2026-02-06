@@ -59,7 +59,7 @@ export default function HerbalMedicinePage() {
             <a
               className="hero-cta"
               href="https://acusimple.com/access/10025/#/appointments/"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               SCHEDULE A CONSULTATION
@@ -133,13 +133,13 @@ export default function HerbalMedicinePage() {
         </div>
       </section>
 
-      <section className="intro-section">
+      <section className="intro-section intro-section--text-only evergreen-section">
         <div className="intro-content">
           <p className="intro-eyebrow">Evergreen Herbs</p>
           <h2>Highest Quality Chinese Herbs</h2>
           <p>
-            From "seed to shelf," Evergreen ensures purity, safety and potency in
-            our herbal extracts by following standards of current Good
+            From &quot;seed to shelf,&quot; Evergreen ensures purity, safety and
+            potency in our herbal extracts by following standards of current Good
             Manufacturing Practice (cGMP) established by the US Food and Drug
             Administration (FDA) and World Health Organization (WHO). Efforts put
             forth by their team of experts in chemistry, microbiology, and
@@ -147,11 +147,16 @@ export default function HerbalMedicinePage() {
             guarantees that your practitioner receives the highest quality
             product that is safe and effective.
           </p>
+          <ul className="evergreen-points" aria-label="Evergreen quality standards">
+            <li>cGMP compliant</li>
+            <li>FDA & WHO aligned standards</li>
+            <li>Certificate of Analysis (COA)</li>
+          </ul>
           <a
             className="intro-cta"
             href="https://www.evherbs.com/about-us/why-evergreen-herbs"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             WHY EVERGREEN HERBS
             <span className="cta-icon" aria-hidden="true">
@@ -173,15 +178,6 @@ export default function HerbalMedicinePage() {
               </svg>
             </span>
           </a>
-        </div>
-        <div className="intro-media">
-          <Image
-            src="/assets/images/nutrition_therapy_img.png"
-            alt="Herbal formulations"
-            width={364}
-            height={220}
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
         </div>
       </section>
 
@@ -220,7 +216,7 @@ export default function HerbalMedicinePage() {
               className="service-link"
               href="https://acusimple.com/access/10025/#/appointments/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               SCHEDULE NOW
               <span className="cta-icon" aria-hidden="true">

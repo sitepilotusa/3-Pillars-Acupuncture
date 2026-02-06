@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "./components/Header";
 import { baseMetadata, businessName, defaultImage, siteUrl } from "./lib/seo";
 
@@ -127,7 +128,7 @@ export default function RootLayout({ children }) {
                     className="footer-social-link"
                     href="https://www.facebook.com/people/3-Pillars-Acupuncture-Holistic-Health/61558587860628/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label="3 Pillars on Facebook"
                   >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -138,7 +139,7 @@ export default function RootLayout({ children }) {
                     className="footer-social-link"
                     href="https://www.instagram.com/3pillarsholistichealth/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label="3 Pillars on Instagram"
                   >
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -167,7 +168,7 @@ export default function RootLayout({ children }) {
                 className="footer-cta"
                 href="https://acusimple.com/access/10025/#/appointments/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Schedule Now
               </a>
@@ -176,13 +177,13 @@ export default function RootLayout({ children }) {
             <div className="footer-nav">
               <p className="footer-heading">Explore</p>
               <nav aria-label="Footer navigation">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/acupuncture">Acupuncture</a>
-                <a href="/ayurveda">Ayurveda</a>
-                <a href="/herbal-medicine">Herbal Medicine</a>
-                <a href="/contact">Contact</a>
-                <a href="/community-partners">Community Partners</a>
+                <Link href="/">Home</Link>
+                <Link href="/about">About</Link>
+                <Link href="/acupuncture">Acupuncture</Link>
+                <Link href="/ayurveda">Ayurveda</Link>
+                <Link href="/herbal-medicine">Herbal Medicine</Link>
+                <Link href="/contact">Contact</Link>
+                <Link href="/community-partners">Community Partners</Link>
               </nav>
             </div>
           </div>

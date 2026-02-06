@@ -22,7 +22,7 @@ export default function AboutPage() {
           />
           <div className="about-hero-overlay" aria-hidden="true" />
         </div>
-        <div className="about-hero-content is-middle">
+        <div className="about-hero-content is-middle alana-hero-content">
           <div className="hero-inner">
             <div className="hero-content">
               <p className="hero-eyebrow">About</p>
