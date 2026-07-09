@@ -167,23 +167,57 @@ function buildSitePilotPageviewScript() {
 
       window.sitepilotTrack = captureCustomEvent;
 
-      document.addEventListener("click", (event) => {
-        const clicked = event.target instanceof Element
-          ? event.target.closest("[data-sitepilot-event]")
-          : null;
-        if (!clicked) return;
+      function isAcusimpleAppointmentUrl(href) {
+        if (!href) return false;
+        try {
+          const url = new URL(href, window.location.href);
+          return url.hostname === "acusimple.com" && url.pathname === "/access/10025/";
+        } catch {
+          return false;
+        }
+      }
 
-        const eventName = clicked.getAttribute("data-sitepilot-event");
-        const href = clicked instanceof HTMLAnchorElement ? clicked.href : clicked.getAttribute("href") || "";
+      function buildClickProperties(clicked, href) {
         const section = clicked.closest("section[id]");
-        captureCustomEvent(eventName, {
+        return {
           ...parseInlineProperties(clicked.getAttribute("data-sitepilot-properties")),
           cta_text: (clicked.textContent || "").trim().replace(/\s+/g, " ").slice(0, 120),
           destination_url: href,
+          link_url: href,
           page_path: window.location.pathname,
           page_section: section ? section.id : "",
           element_tag: clicked.tagName.toLowerCase(),
-        });
+        };
+      }
+
+      document.addEventListener("click", (event) => {
+        const eventTarget = event.target instanceof Element ? event.target : null;
+        if (!eventTarget) return;
+
+        const explicitTrackingElement = eventTarget.closest("[data-sitepilot-event]");
+        const anchorElement = eventTarget.closest("a[href]");
+        const clicked = explicitTrackingElement || anchorElement;
+        if (!clicked) return;
+
+        const href = anchorElement instanceof HTMLAnchorElement
+          ? anchorElement.href
+          : clicked.getAttribute("href") || "";
+        const eventName = explicitTrackingElement
+          ? explicitTrackingElement.getAttribute("data-sitepilot-event")
+          : isAcusimpleAppointmentUrl(href)
+            ? "appointment button clicked"
+            : "";
+
+        if (!eventName) return;
+
+        const properties = buildClickProperties(clicked, href);
+        if (!explicitTrackingElement && isAcusimpleAppointmentUrl(href)) {
+          properties.conversion_type = "appointment_scheduler";
+          properties.appointment_provider = "Acusimple";
+          properties.link_group = "primary_conversion";
+        }
+
+        captureCustomEvent(eventName, properties);
       });
 
       capturePageview();
