@@ -43,7 +43,7 @@ const reviews = [
     name: "Bradley Roddy",
     meta: "9 months ago",
     text:
-      "Alana is a true professional in acupuncture and holistic wellness. Her care goes beyond treatment—she empowers her clients with top-tier education to truly understand their bodies and elevate their health. Her passion, knowledge, and personalized approach make a lasting impact.",
+      "Alana is a true professional in acupuncture and holistic wellness. Her care goes beyond treatment; she empowers her clients with top-tier education to truly understand their bodies and elevate their health. Her passion, knowledge, and personalized approach make a lasting impact.",
   },
   {
     name: "Sarah Mandel",
